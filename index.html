@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vendor Hub</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <header>
+    <div class="logo">Vendor Hub</div>
+    <nav>
+      <ul id="main-nav">
+        <li><a href="#home" class="nav-link active" onclick="showPage('home')">Home</a></li>
+        <li><a href="#courses" class="nav-link" onclick="showPage('courses')">Courses</a></li>
+        <li><a href="#address" class="nav-link" onclick="showPage('address')">Address</a></li>
+        <li><a href="#contact" class="nav-link" onclick="showPage('contact')">Contact</a></li>
+      </ul>
+      <ul id="auth-nav">
+        <li><a href="login.html" class="nav-link" id="signin-link">Sign In</a></li>
+        <li><a href="signup.html" class="nav-link" id="signup-link">Sign Up</a></li>
+        <li><a href="#logout" class="nav-link hidden" id="logout-link" onclick="logout()">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="home" class="page-section">
+      <h1>Welcome to Vendor Hub</h1>
+      <p>Download and learn courses in Computer System and Architecture.<br>
+      Sign up to access exclusive resources!</p>
+      <div id="profile-section" class="profile-section" style="margin-top:32px;display:none;">
+        <h2>Your Profile</h2>
+        <img id="profile-img" src="" alt="Profile Picture" style="width:100px;height:100px;border-radius:50%;object-fit:cover;border:2px solid #a259ff;display:block;margin-bottom:12px;">
+        <div><strong>Name:</strong> <span id="profile-username"></span></div>
+        <div><strong>Field of Trader:</strong> <span id="profile-trader"></span></div>
+        <div><strong>Gender:</strong> <span id="profile-gender"></span></div>
+        <div><strong>Bio:</strong> <span id="profile-bio"></span></div>
+      </div>
+    </section>
+
+    <section id="courses" class="page-section hidden">
+      <h1>Courses</h1>
+      <ul class="course-list">
+        <li>
+          <h3>Computer Architecture Fundamentals</h3>
+          <p>Learn the basics of CPU, memory, and digital logic.</p>
+          <a href="#" class="download-btn">Download</a>
+        </li>
+        <li>
+          <h3>Operating Systems Concepts</h3>
+          <p>Explore how operating systems work and manage hardware.</p>
+          <a href="#" class="download-btn">Download</a>
+        </li>
+        <li>
+          <h3>System Design Essentials</h3>
+          <p>Understand core principles of designing computer systems.</p>
+          <a href="#" class="download-btn">Download</a>
+        </li>
+      </ul>
+    </section>
+
+    <section id="address" class="page-section hidden">
+      <h1>Our Address</h1>
+      <address>
+        Vendor Hub HQ<br>
+        123 Technology Avenue<br>
+        Innovation City, 10001<br>
+        Country
+      </address>
+    </section>
+
+    <section id="contact" class="page-section hidden">
+      <h1>Contact Us</h1>
+      <form class="contact-form" onsubmit="submitContact(event)">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+        <div class="form-message" id="formMessage"></div>
+      </form>
+    </section>
+  </main>
+  <footer>
+    &copy; 2025 Vendor Hub. All rights reserved.
+  </footer>
+  <script src="script.js"></script>
+  <script>
+    // Show profile section if logged in
+    window.addEventListener("DOMContentLoaded", function() {
+      const username = localStorage.getItem("vendorhub_session");
+      if (username) {
+        document.getElementById('profile-section').style.display = "block";
+      }
+    });
+  </script>
+</body>
+</html>

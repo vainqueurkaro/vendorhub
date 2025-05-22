@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Vendor Hub - Sign Up</title>
+  <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+  <div class="auth-container" id="signup-step1">
+    <h2>Create an Account</h2>
+    <form id="signupFormStep1" onsubmit="signUpStep1(event)">
+      <input type="text" id="signup-username" placeholder="Username" required/>
+      <input type="password" id="signup-password" placeholder="Password" required/>
+      
+      <select id="signup-trader" required>
+        <option value="">Select Field of Trader</option>
+        <option value="Software Development">Software Development</option>
+        <option value="Computer System and Architecture">Computer System and Architecture</option>
+        <option value="Network and Internet Technology">Network and Internet Technology</option>
+        <option value="Electronic and Telecommunication">Electronic and Telecommunication</option>
+      </select>
+      
+      <select id="signup-gender" required>
+        <option value="">Select Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+      </select>
+      
+      <button type="submit">Next</button>
+      <div class="auth-message" id="signupMessageStep1"></div>
+    </form>
+    <div class="auth-links">
+      <a href="login.html">Already have an account? Sign In</a>
+    </div>
+  </div>
+
+  <div class="auth-container hidden" id="signup-step2">
+    <h2>Profile Information</h2>
+    <form id="signupFormStep2" onsubmit="signUpStep2(event)">
+      <label>Profile Picture (optional):</label>
+      <input type="file" id="signup-photo" accept="image/*">
+      <input type="text" id="signup-bio" placeholder="Short Bio (optional)" maxlength="120"/>
+      <button type="submit">Sign Up</button>
+      <div class="auth-message" id="signupMessageStep2"></div>
+    </form>
+    <div class="auth-links">
+      <a href="login.html">Already have an account? Sign In</a>
+    </div>
+  </div>
+
+  <script src="auth.js"></script>
+</body>
+</html>
